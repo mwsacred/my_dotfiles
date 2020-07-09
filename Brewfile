@@ -49,3 +49,5 @@ cask 'clipy'
 cask 'jetbrains-toolbox'
 cask 'numi'
 cask 'font-fira-code'
+
+mas 'KakaoTalk', id: 869223134
