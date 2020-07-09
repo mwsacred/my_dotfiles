@@ -2,7 +2,9 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
+tap 'mas-cli/tap'
 
+brew 'mas-cli/tap/mas'
 brew 'ack'
 brew 'coreutils'
 brew 'go'
