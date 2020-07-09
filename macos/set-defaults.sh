@@ -20,7 +20,9 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 chflags nohidden ~/Library
 
 # Set a really fast key repeat.
-defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 10
+defaults write com.apple.universalaccess slowKey -int 0
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -32,3 +34,61 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Clear Dock
+defaults write com.apple.dock persistent-apps -array '()'
+defaults write com.apple.dock orientation right
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock "show-recents" -bool false
+
+# Swap fn key in Touchbar
+defaults write com.apple.touchbar.agent PresentationModeFnModes -dict appWithControlStrip fullControlStrip functionKeys fullControlStrip
+defaults write com.apple.touchbar.agent PresentationModeGlobal functionKeys
+
+# Disable shortcuts to change input source
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 60 '
+{
+            enabled = 0;
+            value =             {
+                parameters =                 (
+                    32,
+                    49,
+                    262144
+                );
+                type = standard;
+            };
+        }
+'
+
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 61 '
+{
+            enabled = 0;
+            value =             {
+                parameters =                 (
+                    32,
+                    49,
+                    786432
+                );
+                type = standard;
+            };
+        }
+'
+
+# Disable shortcuts about man page in Terminal
+defaults write pbs NSServicesStatus -dict-add "com.apple.Terminal - Open man Page in Terminal - openManPage" '{
+        "enabled_context_menu" = 0;
+        "enabled_services_menu" = 0;
+        "presentation_modes" =         {
+            ContextMenu = 0;
+            ServicesMenu = 0;
+        };
+    }'
+
+defaults write pbs NSServicesStatus -dict-add "com.apple.Terminal - Search man Page Index in Terminal - searchManPages" '{
+        "enabled_context_menu" = 0;
+        "enabled_services_menu" = 0;
+        "presentation_modes" =         {
+            ContextMenu = 0;
+            ServicesMenu = 0;
+        };
+    }'
