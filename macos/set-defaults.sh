@@ -92,3 +92,30 @@ defaults write pbs NSServicesStatus -dict-add "com.apple.Terminal - Search man P
             ServicesMenu = 0;
         };
     }'
+
+# 390Sebulshik
+defaults write com.apple.HIToolbox AppleEnabledInputSources -array '
+(
+        {
+        InputSourceKind = "Keyboard Layout";
+        "KeyboardLayout ID" = 252;
+        "KeyboardLayout Name" = ABC;
+    },
+        {
+        "Bundle ID" = "com.apple.inputmethod.Korean";
+        InputSourceKind = "Keyboard Input Method";
+    },
+        {
+        "Bundle ID" = "com.apple.inputmethod.EmojiFunctionRowItem";
+        InputSourceKind = "Non Keyboard Input Method";
+    },
+        {
+        "Bundle ID" = "com.apple.PressAndHold";
+        InputSourceKind = "Non Keyboard Input Method";
+    },
+        {
+        "Bundle ID" = "com.apple.inputmethod.Korean";
+        "Input Mode" = "com.apple.inputmethod.Korean.390Sebulshik";
+        InputSourceKind = "Input Mode";
+    }
+)'
